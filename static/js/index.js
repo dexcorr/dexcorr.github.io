@@ -1,78 +1,139 @@
-window.HELP_IMPROVE_VIDEOJS = false;
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('video').forEach(function(video) {
+    video.defaultPlaybackRate = 1.0;
+    video.playbackRate = 1.0;
+  });
 
-var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
+  document.querySelectorAll('[data-video-highlight]').forEach(function(highlight) {
+    var mainVideo = highlight.querySelector(':scope > video');
+    var detailVideo = highlight.querySelector('.contact-detail-inset video');
 
-var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
-  }
-}
+    if (!mainVideo || !detailVideo) {
+      return;
+    }
 
-function setInterpolationImage(i) {
-  var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
-  $('#interpolation-image-wrapper').empty().append(image);
-}
+    function syncDetailTime() {
+      if (Math.abs(detailVideo.currentTime - mainVideo.currentTime) > 0.12) {
+        detailVideo.currentTime = mainVideo.currentTime;
+      }
+    }
 
-
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
+    mainVideo.addEventListener('play', function() {
+      syncDetailTime();
+      detailVideo.playbackRate = mainVideo.playbackRate;
+      detailVideo.play().catch(function() {});
     });
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
-    }
-
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
+    mainVideo.addEventListener('pause', function() {
+      detailVideo.pause();
     });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
-    bulmaSlider.attach();
+    mainVideo.addEventListener('seeking', syncDetailTime);
+    mainVideo.addEventListener('timeupdate', syncDetailTime);
+    mainVideo.addEventListener('ratechange', function() {
+      detailVideo.playbackRate = mainVideo.playbackRate;
+    });
 
-})
+    if (mainVideo.paused) {
+      detailVideo.pause();
+    } else {
+      syncDetailTime();
+    }
+  });
+
+  document.querySelectorAll('[data-video-carousel]').forEach(function(carousel) {
+    var slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
+    var pageButtons = Array.from(carousel.querySelectorAll('[data-carousel-page]'));
+    var activeIndex = 0;
+    var touchStartX = 0;
+    var touchStartY = 0;
+
+    function showSlide(nextIndex, restartVideo) {
+      activeIndex = (nextIndex + slides.length) % slides.length;
+
+      slides.forEach(function(slide, index) {
+        var isActive = index === activeIndex;
+        slide.hidden = !isActive;
+
+        slide.querySelectorAll('video').forEach(function(video) {
+          if (!isActive) {
+            video.pause();
+            return;
+          }
+
+          if (restartVideo) {
+            try {
+              video.currentTime = 0;
+            } catch (error) {}
+          }
+
+          if (!carousel.closest('[hidden]')) {
+            video.play().catch(function() {});
+          }
+        });
+      });
+
+      pageButtons.forEach(function(button, index) {
+        var isActive = index === activeIndex;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    pageButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        showSlide(Number(button.dataset.carouselPage), true);
+      });
+    });
+
+    carousel.addEventListener('touchstart', function(event) {
+      var touch = event.changedTouches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function(event) {
+      var touch = event.changedTouches[0];
+      var deltaX = touch.clientX - touchStartX;
+      var deltaY = touch.clientY - touchStartY;
+
+      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+        return;
+      }
+
+      showSlide(activeIndex + (deltaX < 0 ? 1 : -1), true);
+    }, { passive: true });
+
+    showSlide(0, false);
+  });
+
+  document.querySelectorAll('[data-task-switcher]').forEach(function(switcher) {
+    var tabs = switcher.querySelectorAll('.task-tab');
+    var panels = switcher.querySelectorAll('.task-panel');
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var targetId = tab.dataset.taskTarget;
+
+        tabs.forEach(function(candidate) {
+          var isActive = candidate === tab;
+          candidate.classList.toggle('is-dark', isActive);
+          candidate.setAttribute('aria-selected', String(isActive));
+        });
+
+        panels.forEach(function(panel) {
+          var isActive = panel.id === targetId;
+          panel.hidden = !isActive;
+
+          panel.querySelectorAll('video').forEach(function(video) {
+            if (isActive && !video.closest('[hidden]')) {
+              video.play().catch(function() {});
+            } else {
+              video.pause();
+            }
+          });
+        });
+      });
+    });
+  });
+});

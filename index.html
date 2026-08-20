@@ -3,97 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="DexCorr: Force-Aware Local Takeovers for Robust Dexterous Manipulation.">
-  <meta name="keywords" content="DexCorr, Dexterous Manipulation, Force-Aware, Local Takeovers, Robot Learning">
+        content="ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface.">
+  <meta name="keywords" content="ReDex, Dexterous Manipulation, Robust Dexterous Behavior, Sparse Human Intervention, Compliant Interface, Robot Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DexCorr: Force-Aware Local Takeovers for Robust Dexterous Manipulation</title>
+  <title>ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/index.js"></script>
 </head>
 <body>
 
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DexCorr: Force-Aware Local Takeovers for Robust Dexterous Manipulation</h1>
+          <h1 class="title is-1 publication-title">
+            <span class="publication-title-line">ReDex: Reconstructing Robust Dexterous Behavior</span>
+            <span class="publication-title-line">from Sparse Human Intervention via a Compliant Interface</span>
+          </h1>
 
           <!-- Author names hidden for anonymity. -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">Anonymous Authors</span>
           </div>
-
-          <!-- Publication links hidden for anonymity. -->
-          <!--
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              &lt;!&ndash; PDF Link. &ndash;&gt;
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              &lt;!&ndash; Video Link. &ndash;&gt;
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              &lt;!&ndash; Code Link. &ndash;&gt;
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
-          </div>
-          -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!--
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -102,98 +48,445 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">DexCorr</span> uses force-aware local takeovers to make
+        <span class="dnerf">ReDex</span> uses force-aware local takeovers to make
         dexterous manipulation robust to contact-rich failures.
       </h2>
     </div>
   </div>
 </section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+-->
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
+    <!--
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            <!-- TODO: Replace with your paper's abstract. -->
             Dexterous manipulation with multi-fingered hands remains brittle under contact-rich
             interactions, where small pose errors and unmodeled forces compound into failures.
-            We present <span class="dnerf">DexCorr</span>, a framework that combines learned
+            We present <span class="dnerf">ReDex</span>, a framework that combines learned
             policies with <i>force-aware local takeovers</i>: a corrective controller that
             monitors contact forces and momentarily assumes control at critical moments to
             stabilize the interaction before returning control to the base policy.
           </p>
           <p>
-            By reasoning about force signals rather than pose alone, DexCorr detects incipient
+            By reasoning about force signals rather than pose alone, ReDex detects incipient
             slips and misalignments and applies targeted corrections that recover the task without
             disrupting the overall behavior. This yields more robust and reliable manipulation
             across a range of contact-rich tasks.
           </p>
           <p>
-            We evaluate DexCorr on a suite of dexterous manipulation tasks and show that it
+            We evaluate ReDex on a suite of dexterous manipulation tasks and show that it
             substantially improves success rates and robustness compared to policies without
             force-aware correction.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+    -->
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <!-- TODO: Replace with your video embed URL. -->
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- ReDex Pipeline (temporarily hidden).
+    <section class="method-pipeline-section" id="method-overview" aria-labelledby="method-overview-title">
+      <header class="pipeline-heading has-text-centered">
+        <p class="pipeline-kicker">METHOD OVERVIEW</p>
+        <h2 class="title is-2" id="method-overview-title">ReDex Pipeline</h2>
+        <p class="pipeline-intro">From sparse local correction to complete autonomous behavior.</p>
+      </header>
+
+      <div class="minimal-pipeline">
+        <article class="minimal-pipeline-stage">
+          <span>SIMULATION</span>
+          <h3>Sim-Trained Skill</h3>
+          <p>Reusable coordination</p>
+        </article>
+
+        <div class="minimal-pipeline-arrow" aria-hidden="true">&rarr;</div>
+
+        <article class="minimal-pipeline-stage">
+          <span>HARDWARE CORRECTION</span>
+          <h3>Finger-Local Interaction</h3>
+          <p>Guide failed fingers only</p>
+        </article>
+
+        <div class="minimal-pipeline-arrow" aria-hidden="true">&rarr;</div>
+
+        <article class="minimal-pipeline-stage is-reconstruction">
+          <span>BEHAVIOR RECONSTRUCTION</span>
+          <h3>Complete Rollout</h3>
+          <p><strong>Virtual target</strong> &middot; corrected-state continuation &middot; transition bridge</p>
+        </article>
+
+        <div class="minimal-pipeline-arrow" aria-hidden="true">&rarr;</div>
+
+        <article class="minimal-pipeline-stage">
+          <span>DEPLOYMENT</span>
+          <h3>Standalone ReDex</h3>
+          <p>Proprioception + tactile only</p>
+        </article>
+      </div>
+
+      <p class="minimal-pipeline-note has-text-centered">Human interaction provides corrective evidence, not direct executable supervision.</p>
+    </section>
+    -->
+
+    <p class="comparison-note has-text-centered">All videos are played at 1&times; speed with audio.</p>
+
+    <!-- Flip Cellphone success-rate plot (temporarily hidden).
+    <figure class="statistics-figure">
+      <img src="./static/images/task-success-rate.svg"
+           alt="Flip Cellphone success rate: Base succeeds in 0 of 10 trials and ReDex succeeds in 4 of 10 trials, with 95 percent Wilson confidence intervals.">
+      <figcaption>
+        Flip Cellphone success over 10 real-world trials per method. Error bars show 95% Wilson confidence intervals.
+      </figcaption>
+    </figure>
+    -->
+
+    <section class="task-group" id="training-size-objects" data-task-switcher>
+      <div class="task-tabs" role="tablist" aria-label="Training-size object tasks">
+        <button class="button is-rounded is-dark task-tab" type="button" role="tab"
+                aria-selected="true" aria-controls="normal-cuboid"
+                data-task-target="normal-cuboid">Flip Cuboid</button>
+        <button class="button is-rounded task-tab" type="button" role="tab"
+                aria-selected="false" aria-controls="normal-screwdriver"
+                data-task-target="normal-screwdriver">Normal Screwdriver</button>
+      </div>
+
+      <!-- Normal screwdriver comparison. -->
+      <div class="columns is-centered has-text-centered task-panel" id="normal-screwdriver" role="tabpanel" hidden>
+        <div class="column is-full">
+          <h3 class="title is-3">Normal Screwdriver</h3>
+          <div class="columns is-centered comparison-videos">
+            <div class="column is-half">
+              <div class="result-video result-video-placeholder" aria-label="Base video pending">
+                <span>Base video</span>
+                <span class="video-corner-label">Base</span>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="result-video">
+                <video id="ours-normal-screwdriver" autoplay controls muted loop playsinline preload="metadata">
+                  <source src="./static/videos/ours-normal-screwdriver.mp4"
+                          type="video/mp4">
+                </video>
+                <span class="video-corner-label">Ours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Normal screwdriver comparison. -->
+
+      <!-- Flip cuboid comparison. -->
+      <div class="columns is-centered has-text-centered task-panel" id="normal-cuboid" role="tabpanel">
+        <div class="column is-full">
+          <h3 class="title is-3">Flip Cuboid</h3>
+          <div class="cuboid-carousel" data-video-carousel aria-label="Flip Cuboid rollout carousel">
+            <div class="cuboid-carousel-viewport" aria-live="polite">
+              <article class="cuboid-carousel-slide" data-carousel-slide>
+              <div class="result-video rollout-video">
+                <video id="ours-normal-cuboid-rollout-1" autoplay controls muted loop playsinline preload="metadata">
+                  <source src="./static/videos/ours-normal-cuboid-rollout-1.mp4"
+                          type="video/mp4">
+                </video>
+                <span class="video-corner-label">Rollout #1</span>
+              </div>
+              </article>
+
+              <article class="cuboid-carousel-slide" data-carousel-slide hidden>
+              <div class="result-video rollout-video">
+                <video id="ours-normal-cuboid-rollout-2" autoplay controls muted loop playsinline preload="metadata">
+                  <source src="./static/videos/ours-normal-cuboid-rollout-2.mp4"
+                          type="video/mp4">
+                </video>
+                <span class="video-corner-label">Rollout #2</span>
+              </div>
+              </article>
+
+              <article class="cuboid-carousel-slide" data-carousel-slide hidden>
+              <div class="result-video rollout-video">
+                <video id="ours-normal-cuboid-rollout-3" autoplay controls muted loop playsinline preload="metadata">
+                  <source src="./static/videos/ours-normal-cuboid-rollout-3.mp4"
+                          type="video/mp4">
+                </video>
+                <span class="video-corner-label">Rollout #3</span>
+              </div>
+              </article>
+            </div>
+
+            <div class="cuboid-carousel-controls">
+              <div class="cuboid-carousel-pages" aria-label="Choose rollout">
+                <button class="cuboid-carousel-page is-active" type="button" data-carousel-page="0" aria-label="Show rollout 1" aria-pressed="true">1</button>
+                <button class="cuboid-carousel-page" type="button" data-carousel-page="1" aria-label="Show rollout 2" aria-pressed="false">2</button>
+                <button class="cuboid-carousel-page" type="button" data-carousel-page="2" aria-label="Show rollout 3" aria-pressed="false">3</button>
+              </div>
+            </div>
+            <p class="cuboid-rollout-summary">ReDex applies appropriate contact force, maintains gentle and stable interaction, and achieves smooth, controlled reorientation.</p>
+          </div>
+          <!-- Flip Cuboid Base (temporarily hidden).
+          <div class="columns is-centered has-text-centered cuboid-base-row">
+            <div class="column is-one-third">
+              <div class="result-video result-video-placeholder" aria-label="Base video pending">
+                <span>Base video</span>
+              </div>
+              <p class="cuboid-rollout-label">Base</p>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+      <!--/ Flip cuboid comparison. -->
+    </section>
+
+    <section class="task-group" id="adaptation-tasks">
+      <div class="task-group-heading has-text-centered">
+        <h2 class="title is-2">Fast Adaptation Across Sizes and Geometries with Nominal Sim-Trained Skills</h2>
+        <h3 class="skill-family-title">Rotation Skill</h3>
+      </div>
+
+    <div id="screwdriver-adaptation-tasks" data-task-switcher>
+      <div class="task-tabs" role="tablist" aria-label="Screwdriver adaptation tasks">
+        <button class="button is-rounded is-dark task-tab" type="button" role="tab"
+                aria-selected="true" aria-controls="small-screwdriver"
+                data-task-target="small-screwdriver">Small Screwdriver</button>
+        <button class="button is-rounded task-tab" type="button" role="tab"
+                aria-selected="false" aria-controls="large-screwdriver"
+                data-task-target="large-screwdriver">Large Screwdriver</button>
+      </div>
+
+    <!-- Small screwdriver comparison. -->
+    <div class="columns is-centered has-text-centered task-panel" id="small-screwdriver" role="tabpanel">
+      <div class="column is-full">
+        <div class="columns is-centered comparison-videos">
+          <div class="column is-half">
+            <div class="result-video" data-video-highlight>
+              <video id="base-policy-small-screwdriver" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/base-policy-sim2real-small-screwdriver-clipped.mp4"
+                        type="video/mp4">
+              </video>
+              <div class="contact-detail-inset" aria-hidden="true">
+                <video id="base-small-screwdriver-contact-detail" autoplay muted loop playsinline preload="metadata">
+                  <source src="./static/videos/base-small-screwdriver-contact-detail-web.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+              <span class="video-corner-label">Base</span>
+            </div>
+            <p class="comparison-description"><span class="failure-cross" aria-hidden="true">&#10005;</span> The smaller handle changes the contact geometry, preventing the middle and ring fingers from providing sufficient support for sustained rotation.</p>
+          </div>
+          <div class="column is-half">
+            <div class="result-video" data-video-highlight>
+              <video id="ours-small-screwdriver" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/ours-small-screwdriver-clipped.mp4"
+                        type="video/mp4">
+              </video>
+              <div class="contact-detail-inset" aria-hidden="true">
+                <video id="small-screwdriver-contact-detail" autoplay muted loop playsinline preload="metadata">
+                  <source src="./static/videos/small-contact-detail-web.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+              <span class="video-corner-label">Ours</span>
+            </div>
+            <p class="comparison-description"><span class="success-check" aria-hidden="true">&#10003;</span> ReDex learns force-aware contact adjustments for the middle and ring fingers, enabling a smooth control transition and stable, sustained rotation.</p>
+          </div>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
+    <!--/ Small screwdriver comparison. -->
+
+    <!-- Large screwdriver comparison. -->
+    <div class="columns is-centered has-text-centered task-panel" id="large-screwdriver" role="tabpanel" hidden>
+      <div class="column is-full">
+        <div class="columns is-centered comparison-videos">
+          <div class="column is-half">
+            <div class="result-video" data-video-highlight>
+              <video id="base-policy-large-screwdriver" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/base-policy-sim2real-large-screwdriver-clipped.mp4"
+                        type="video/mp4">
+              </video>
+              <div class="contact-detail-inset" aria-hidden="true">
+                <video id="base-large-screwdriver-contact-detail" autoplay muted loop playsinline preload="metadata">
+                  <source src="./static/videos/base-large-screwdriver-contact-detail-web.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+              <span class="video-corner-label">Base</span>
+            </div>
+            <p class="comparison-description"><span class="failure-cross" aria-hidden="true">&#10005;</span> The larger handle changes the contact geometry, causing finger slip, unstable support, and incomplete rotation.</p>
+          </div>
+          <div class="column is-half">
+            <div class="result-video">
+              <video id="ours-large-screwdriver" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/ours-large-screwdriver.mp4"
+                        type="video/mp4">
+              </video>
+              <span class="video-corner-label">Ours</span>
+            </div>
+            <p class="comparison-description"><span class="success-check" aria-hidden="true">&#10003;</span> ReDex learns a force-aware ring-finger correction that <span class="caption-keyphrase">establishes stable opposition</span> with the thumb, mitigating slip and enabling sustained rotation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Large screwdriver comparison. -->
+    </div>
+    </section>
+
+    <section class="task-group" id="geometry-adaptation">
+    <div class="task-group-heading has-text-centered">
+      <h3 class="skill-family-title">Reorientation Skill</h3>
+    </div>
+    <div id="geometry-adaptation-tasks" data-task-switcher>
+      <div class="task-tabs" role="tablist" aria-label="Geometry adaptation tasks">
+        <button class="button is-rounded is-dark task-tab" type="button" role="tab"
+                aria-selected="true" aria-controls="flip-cellphone"
+                data-task-target="flip-cellphone">Flip Cellphone</button>
+        <button class="button is-rounded task-tab" type="button" role="tab"
+                aria-selected="false" aria-controls="flip-eraser"
+                data-task-target="flip-eraser">Flip Eraser</button>
+      </div>
+
+    <!-- Flip cellphone comparison. -->
+    <div class="columns is-centered has-text-centered task-panel" id="flip-cellphone" role="tabpanel">
+      <div class="column is-full">
+        <h3 class="title is-3">Flip Cellphone</h3>
+        <div class="columns is-centered comparison-videos">
+          <div class="column is-half">
+            <div class="result-video">
+              <video id="base-policy-flip-cellphone" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/base-policy-flip-cellphone.mp4"
+                        type="video/mp4">
+              </video>
+              <span class="video-corner-label">Base</span>
+            </div>
+            <p class="comparison-description"><span class="failure-cross" aria-hidden="true">&#10005;</span> The transferred policy loses fingertip support during reorientation, causing the cellphone to slip before completing the flip.</p>
+          </div>
+          <div class="column is-half">
+            <div class="result-video">
+              <video id="ours-flip-cellphone" autoplay controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/ours-flip-cellphone.mp4"
+                        type="video/mp4">
+              </video>
+              <span class="video-corner-label">Ours</span>
+            </div>
+            <p class="comparison-description"><span class="success-check" aria-hidden="true">&#10003;</span> ReDex learns force-aware contact adjustments that preserve fingertip support, enabling a smooth control transition and stable in-hand flipping.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Flip cellphone comparison. -->
+
+    <!-- Flip eraser comparison. -->
+    <div class="columns is-centered has-text-centered task-panel" id="flip-eraser" role="tabpanel" hidden>
+      <div class="column is-full">
+        <h3 class="title is-3">Flip Eraser</h3>
+        <div class="columns is-centered comparison-videos">
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="Base video pending">
+              <span>Base video</span>
+              <span class="video-corner-label">Base</span>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="Ours video pending">
+              <span>Ours video</span>
+              <span class="video-corner-label">Ours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Flip eraser comparison. -->
+    </div>
+    </section>
+
+    <section class="task-group" id="sim2real-failure-modes">
+      <div class="task-group-heading has-text-centered">
+        <h2 class="title is-2">Sim-to-Real Failure Modes</h2>
+        <p>Representative failures of the simulation-trained base policy under real-world contact discrepancies.</p>
+      </div>
+
+      <div class="columns is-centered failure-mode-grid">
+        <article class="column is-one-third failure-mode-card has-text-centered">
+          <h3 class="title is-5">Contact Misalignment</h3>
+          <div class="result-video result-video-placeholder" aria-label="Contact misalignment failure video pending">
+            <span>Failure video</span>
+          </div>
+          <p>The realized contact state deviates from the state encountered in simulation.</p>
+        </article>
+
+        <article class="column is-one-third failure-mode-card has-text-centered">
+          <h3 class="title is-5">Compliance Mismatch</h3>
+          <div class="result-video result-video-placeholder" aria-label="Compliance mismatch failure video pending">
+            <span>Failure video</span>
+          </div>
+          <p>Real contact compliance produces forces that the simulation-trained response does not anticipate.</p>
+        </article>
+
+        <article class="column is-one-third failure-mode-card has-text-centered">
+          <h3 class="title is-5">Slip / Grasp Loss</h3>
+          <div class="result-video result-video-placeholder" aria-label="Slip or grasp loss failure video pending">
+            <span>Failure video</span>
+          </div>
+          <p>Small contact errors compound until the object leaves a stable grasp.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="task-group" id="ablation-experiments">
+      <div class="task-group-heading has-text-centered">
+        <h2 class="title is-2">Ablation Experiments</h2>
+      </div>
+      <div class="ablation-item">
+        <h3 class="title is-4 has-text-centered">w/o Tactile</h3>
+        <div class="columns is-centered ablation-video-pair">
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Tactile video 1 pending">
+              <span>Video 1</span>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Tactile video 2 pending">
+              <span>Video 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ablation-item">
+        <h3 class="title is-4 has-text-centered">w/o Virtual Target</h3>
+        <div class="columns is-centered ablation-video-pair">
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Virtual Target video 1 pending">
+              <span>Video 1</span>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Virtual Target video 2 pending">
+              <span>Video 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ablation-item">
+        <h3 class="title is-4 has-text-centered">w/o Transition Bridge</h3>
+        <div class="columns is-centered ablation-video-pair">
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Transition Bridge video 1 pending">
+              <span>Video 1</span>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="result-video result-video-placeholder" aria-label="w/o Transition Bridge video 2 pending">
+              <span>Video 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </section>
 
@@ -201,9 +494,9 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{dexcorr,
+    <pre><code>@article{redex,
   author    = {Anonymous},
-  title     = {DexCorr: Force-Aware Local Takeovers for Robust Dexterous Manipulation},
+  title     = {ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface},
   journal   = {},
   year      = {2026},
 }</code></pre>
@@ -213,22 +506,7 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-          </p>
-        </div>
-      </div>
-    </div>
+    <p class="has-text-centered"><span class="dnerf">ReDex</span> · 2026</p>
   </div>
 </footer>
 
