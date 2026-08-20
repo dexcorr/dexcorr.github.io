@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface.">
-  <meta name="keywords" content="ReDex, Dexterous Manipulation, Robust Dexterous Behavior, Sparse Human Intervention, Compliant Interface, Robot Learning">
+        content="ReDex: Reconstructing Robust Dexterous Behavior from Human Corrections via Finger-Level Compliance.">
+  <meta name="keywords" content="ReDex, Dexterous Manipulation, Robust Dexterous Behavior, Human Corrections, Finger-Level Compliance, Robot Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface</title>
+  <title>ReDex: Reconstructing Robust Dexterous Behavior from Human Corrections via Finger-Level Compliance</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -26,7 +26,7 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
             <span class="publication-title-line">ReDex: Reconstructing Robust Dexterous Behavior</span>
-            <span class="publication-title-line">from Sparse Human Intervention via a Compliant Interface</span>
+            <span class="publication-title-line">from Human Corrections via Finger-Level Compliance</span>
           </h1>
 
           <!-- Author names hidden for anonymity. -->
@@ -131,6 +131,22 @@
     </section>
     -->
 
+    <section class="force-target-visual" aria-labelledby="force-target-title">
+      <header class="force-target-heading has-text-centered">
+        <p>Target Reconstruction</p>
+        <h2 id="force-target-title">Force-Informed Target</h2>
+        <span>Measured fingertip forces augment the guided configuration with the contact load established on the real robot, so the reconstructed target reflects real contact conditions rather than motion alone.</span>
+      </header>
+      <figure class="force-target-figure">
+        <div class="force-target-video">
+          <video id="force-informed-target" autoplay controls muted loop playsinline preload="metadata">
+            <source src="./static/videos/force-informed-target.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Force-informed joint targets reconstructed at the corrected contact state.</figcaption>
+      </figure>
+    </section>
+
     <p class="comparison-note has-text-centered">All videos are played at 1&times; speed with audio.</p>
 
     <!-- Flip Cellphone success-rate plot (temporarily hidden).
@@ -144,6 +160,31 @@
     -->
 
     <section class="task-group" id="training-size-objects" data-task-switcher>
+      <div class="training-geometry-overview">
+        <div class="training-overview-grid">
+          <figure class="training-simulation-figure">
+            <div class="training-simulation-media">
+              <img src="./static/images/training-flip-simulation.png"
+                   alt="Parallel simulation environments for training the cuboid reorientation skill.">
+            </div>
+            <figcaption>
+              <strong>Parallel Simulation</strong>
+              <span>Randomized training instances</span>
+            </figcaption>
+          </figure>
+
+          <figure class="training-size-cad-figure">
+            <div class="training-size-cad-media">
+              <img src="./static/images/training-size-geometry.png"
+                   alt="CAD-style front, top, and side views of the training cuboid with randomized bounds for length, width, and height.">
+            </div>
+            <figcaption>
+              <strong>Geometry Randomization</strong>
+              <span>Orthographic dimensions with DR bounds</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
       <div class="task-tabs" role="tablist" aria-label="Training-size object tasks">
         <button class="button is-rounded is-dark task-tab" type="button" role="tab"
                 aria-selected="true" aria-controls="normal-cuboid"
@@ -190,6 +231,13 @@
                   <source src="./static/videos/ours-normal-cuboid-rollout-1.mp4"
                           type="video/mp4">
                 </video>
+                <div class="rotation-target-overlay" aria-hidden="true">
+                  <span class="rotation-coordinate-frame rotation-coordinate-moving">
+                    <span class="rotation-coordinate-origin"></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-x"><span>x</span></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-y"><span>y</span></span>
+                  </span>
+                </div>
                 <span class="video-corner-label">Rollout #1</span>
               </div>
               </article>
@@ -200,6 +248,13 @@
                   <source src="./static/videos/ours-normal-cuboid-rollout-2.mp4"
                           type="video/mp4">
                 </video>
+                <div class="rotation-target-overlay" aria-hidden="true">
+                  <span class="rotation-coordinate-frame rotation-coordinate-moving">
+                    <span class="rotation-coordinate-origin"></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-x"><span>x</span></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-y"><span>y</span></span>
+                  </span>
+                </div>
                 <span class="video-corner-label">Rollout #2</span>
               </div>
               </article>
@@ -210,6 +265,13 @@
                   <source src="./static/videos/ours-normal-cuboid-rollout-3.mp4"
                           type="video/mp4">
                 </video>
+                <div class="rotation-target-overlay" aria-hidden="true">
+                  <span class="rotation-coordinate-frame rotation-coordinate-moving">
+                    <span class="rotation-coordinate-origin"></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-x"><span>x</span></span>
+                    <span class="rotation-coordinate-axis rotation-coordinate-y"><span>y</span></span>
+                  </span>
+                </div>
                 <span class="video-corner-label">Rollout #3</span>
               </div>
               </article>
@@ -242,7 +304,13 @@
     <section class="task-group" id="adaptation-tasks">
       <div class="task-group-heading has-text-centered">
         <h2 class="title is-2">Fast Adaptation Across Sizes and Geometries with Nominal Sim-Trained Skills</h2>
-        <h3 class="skill-family-title">Rotation Skill</h3>
+        <h3 class="skill-family-title">
+          <span>Rotation Skill</span>
+          <span class="rotation-skill-cue" aria-label="Counterclockwise rotation about the z axis">
+            <span class="rotation-skill-axis" aria-hidden="true"><span>z</span></span>
+            <span class="rotation-skill-orbit" aria-hidden="true"></span>
+          </span>
+        </h3>
       </div>
 
     <div id="screwdriver-adaptation-tasks" data-task-switcher>
@@ -319,7 +387,7 @@
           <div class="column is-half">
             <div class="result-video">
               <video id="ours-large-screwdriver" autoplay controls muted loop playsinline preload="metadata">
-                <source src="./static/videos/ours-large-screwdriver.mp4"
+                <source src="./static/videos/ours-large-screwdriver-clipped.mp4"
                         type="video/mp4">
               </video>
               <span class="video-corner-label">Ours</span>
@@ -335,7 +403,16 @@
 
     <section class="task-group" id="geometry-adaptation">
     <div class="task-group-heading has-text-centered">
-      <h3 class="skill-family-title">Reorientation Skill</h3>
+      <h3 class="skill-family-title">
+        <span>Reorientation Skill</span>
+        <span class="reorientation-skill-cue" aria-label="Quarter-turn reorientation in the x-y plane">
+          <span class="reorientation-skill-frame" aria-hidden="true">
+            <span class="reorientation-skill-origin"></span>
+            <span class="reorientation-skill-axis is-x"><span>x</span></span>
+            <span class="reorientation-skill-axis is-y"><span>y</span></span>
+          </span>
+        </span>
+      </h3>
     </div>
     <div id="geometry-adaptation-tasks" data-task-switcher>
       <div class="task-tabs" role="tablist" aria-label="Geometry adaptation tasks">
@@ -368,6 +445,13 @@
                 <source src="./static/videos/ours-flip-cellphone.mp4"
                         type="video/mp4">
               </video>
+              <div class="rotation-target-overlay" aria-hidden="true">
+                <span class="rotation-coordinate-frame rotation-coordinate-moving">
+                  <span class="rotation-coordinate-origin"></span>
+                  <span class="rotation-coordinate-axis rotation-coordinate-x"><span>x</span></span>
+                  <span class="rotation-coordinate-axis rotation-coordinate-y"><span>y</span></span>
+                </span>
+              </div>
               <span class="video-corner-label">Ours</span>
             </div>
             <p class="comparison-description"><span class="success-check" aria-hidden="true">&#10003;</span> ReDex learns force-aware contact adjustments that preserve fingertip support, enabling a smooth control transition and stable in-hand flipping.</p>
@@ -496,7 +580,7 @@
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{redex,
   author    = {Anonymous},
-  title     = {ReDex: Reconstructing Robust Dexterous Behavior from Sparse Human Intervention via a Compliant Interface},
+  title     = {ReDex: Reconstructing Robust Dexterous Behavior from Human Corrections via Finger-Level Compliance},
   journal   = {},
   year      = {2026},
 }</code></pre>

@@ -4,6 +4,55 @@ document.addEventListener('DOMContentLoaded', function() {
     video.playbackRate = 1.0;
   });
 
+  document.querySelectorAll('.rotation-target-overlay').forEach(function(overlay) {
+    var videoContainer = overlay.closest('.result-video');
+    var video = videoContainer ? videoContainer.querySelector(':scope > video') : null;
+    var coordinateFrame = overlay.querySelector('.rotation-coordinate-moving');
+    var previousTime = 0;
+
+    if (!video || !coordinateFrame) {
+      return;
+    }
+
+    function setPausedState() {
+      coordinateFrame.classList.toggle('is-video-sync-paused', video.paused);
+    }
+
+    function restartCoordinateAnimation() {
+      coordinateFrame.classList.remove('is-video-sync-active');
+      void coordinateFrame.offsetWidth;
+      coordinateFrame.classList.add('is-video-sync-active');
+      setPausedState();
+    }
+
+    video.addEventListener('play', function() {
+      if (video.currentTime < 0.25) {
+        restartCoordinateAnimation();
+      }
+      coordinateFrame.classList.remove('is-video-sync-paused');
+      previousTime = video.currentTime;
+    });
+
+    video.addEventListener('pause', setPausedState);
+
+    video.addEventListener('timeupdate', function() {
+      if (video.currentTime + 0.25 < previousTime) {
+        restartCoordinateAnimation();
+      }
+      previousTime = video.currentTime;
+    });
+
+    video.addEventListener('seeked', function() {
+      if (video.currentTime < 0.25 || video.currentTime + 0.25 < previousTime) {
+        restartCoordinateAnimation();
+      }
+      previousTime = video.currentTime;
+    });
+
+    previousTime = video.currentTime;
+    restartCoordinateAnimation();
+  });
+
   document.querySelectorAll('[data-video-highlight]').forEach(function(highlight) {
     var mainVideo = highlight.querySelector(':scope > video');
     var detailVideo = highlight.querySelector('.contact-detail-inset video');
