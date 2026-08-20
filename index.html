@@ -29,10 +29,12 @@
             <span class="publication-title-line">from Human Corrections via Finger-Level Compliance</span>
           </h1>
 
-          <!-- Author names hidden for anonymity. -->
+          <!--
           <div class="is-size-5 publication-authors">
             <span class="author-block">Anonymous Authors</span>
           </div>
+          -->
+
         </div>
       </div>
     </div>
@@ -385,11 +387,17 @@
             <p class="comparison-description"><span class="failure-cross" aria-hidden="true">&#10005;</span> The larger handle changes the contact geometry, causing finger slip, unstable support, and incomplete rotation.</p>
           </div>
           <div class="column is-half">
-            <div class="result-video">
+            <div class="result-video" data-video-highlight>
               <video id="ours-large-screwdriver" autoplay controls muted loop playsinline preload="metadata">
                 <source src="./static/videos/ours-large-screwdriver-clipped.mp4"
                         type="video/mp4">
               </video>
+              <div class="contact-detail-inset" aria-hidden="true">
+                <video id="ours-large-screwdriver-contact-detail" autoplay muted loop playsinline preload="metadata">
+                  <source src="./static/videos/ours-large-screwdriver-contact-detail-web.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
               <span class="video-corner-label">Ours</span>
             </div>
             <p class="comparison-description"><span class="success-check" aria-hidden="true">&#10003;</span> ReDex learns a force-aware ring-finger correction that <span class="caption-keyphrase">establishes stable opposition</span> with the thumb, mitigating slip and enabling sustained rotation.</p>
@@ -575,6 +583,7 @@
 </section>
 
 
+<!--
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -586,11 +595,12 @@
 }</code></pre>
   </div>
 </section>
+-->
 
 
 <footer class="footer">
   <div class="container">
-    <p class="has-text-centered"><span class="dnerf">ReDex</span> · 2026</p>
+    <p class="has-text-centered">2026</p>
   </div>
 </footer>
 
